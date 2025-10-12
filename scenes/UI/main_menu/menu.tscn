@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4qurmqny4x48"]
+
+[ext_resource type="Script" uid="uid://b1lym3242p55q" path="res://scenes/UI/main_menu/menu.gd" id="1_pt1kw"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pt1kw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(0.175, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.352
+anchor_top = 0.234
+anchor_right = 0.642
+anchor_bottom = 0.758
+offset_left = 0.0399933
+offset_top = 0.0959969
+offset_right = -0.160004
+offset_bottom = -0.0480042
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Play"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
