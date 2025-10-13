@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=4 uid="uid://tjuegrpjtf3l"]
+[gd_scene load_steps=8 format=4 uid="uid://tjuegrpjtf3l"]
 
 [ext_resource type="Texture2D" uid="uid://i8hwe7wsmkjk" path="res://assets/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_5byjt"]
-[ext_resource type="PackedScene" uid="uid://datiu40p802ms" path="res://scenes/Characters/Player.tscn" id="2_a68js"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5byjt"]
 texture = ExtResource("1_5byjt")
@@ -107,6 +106,3 @@ tile_set = SubResource("TileSet_fngju")
 [node name="Objects" type="TileMapLayer" parent="TilemapLayers"]
 tile_map_data = PackedByteArray("AAABAAwAAAAGAAgAAAARAAwAAAAJAAgAAAABAAEAAAAHAAgAAAA=")
 tile_set = SubResource("TileSet_l4s77")
-
-[node name="Player" parent="." instance=ExtResource("2_a68js")]
-position = Vector2(56, 104)

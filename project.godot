@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Lemegeton"
 run/main_scene="uid://tjuegrpjtf3l"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -23,8 +23,8 @@ UiController="*res://scenes/UI/ui_manager/ui_controller.gd"
 
 window/size/viewport_width=480
 window/size/viewport_height=256
-window/size/window_width_override=1920
-window/size/window_height_override=1080
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 
 [rendering]
