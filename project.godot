@@ -12,12 +12,17 @@ config_version=5
 
 config/name="Lemegeton"
 run/main_scene="uid://tjuegrpjtf3l"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 UiController="*res://scenes/UI/ui_manager/ui_controller.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+
+[dialogue_manager]
+
+runtime/balloon_path="res://scenes/dialogues/balloon.tscn"
 
 [display]
 
@@ -27,6 +32,16 @@ window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://scenes/dialogues//untitled.dialogue", "res://dialogues/test.dialogue")
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

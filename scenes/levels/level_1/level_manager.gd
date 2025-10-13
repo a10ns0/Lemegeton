@@ -1,4 +1,6 @@
 extends Node
 
-func _on_mc_turn(int):
-	pass # Replace with function body.
+const TEST = preload("uid://bmmyh1r4ppj3q")
+
+func _ready():
+	DialogueManager.show_dialogue_balloon(TEST)

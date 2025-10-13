@@ -1,6 +1,6 @@
 extends Node
 
-const scene_path = "res://Scenes/"
+const scene_p = "res://Scenes/"
 
 const transitions = {
 	"fade_to_black": "res://Scenes/UI/ui_manager/transition_layer.tscn"
@@ -14,7 +14,7 @@ func _ready():
 	current_scene = get_tree().current_scene
 
 func load_scene(route ,scene_name, transition_type = "fast"):
-	var scene_path = scene_path  + route + scene_name + ".tscn"
+	var scene_path = scene_p  + route + scene_name + ".tscn"
 	var new_scene_packed = load(scene_path)
 	if not new_scene_packed:
 		print("Error: No se pudo cargar la escena ", scene_name)

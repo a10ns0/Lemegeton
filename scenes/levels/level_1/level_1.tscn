@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://c84oh05u1rjeb"]
+[gd_scene load_steps=9 format=4 uid="uid://c84oh05u1rjeb"]
 
-[ext_resource type="Script" uid="uid://qsgly5wvtg1p" path="res://scenes/levels/level_1/level_manager.gd" id="1_5o1mp"]
+[ext_resource type="Script" uid="uid://qsgly5wvtg1p" path="res://scenes/levels/level_1/level_manager.gd" id="1_spwf2"]
 [ext_resource type="Texture2D" uid="uid://i8hwe7wsmkjk" path="res://assets/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="2_5o1mp"]
 [ext_resource type="PackedScene" uid="uid://djmmut7vn5ru5" path="res://scenes/characters/mc/mc.tscn" id="2_fngju"]
+[ext_resource type="PackedScene" uid="uid://cxfn3peq1f4y5" path="res://scenes/obstacles/fireball_generator/fireball_generator.tscn" id="4_spwf2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_spwf2"]
 texture = ExtResource("2_5o1mp")
@@ -101,7 +102,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_fngju")
 
 [node name="Level_1" type="Node2D"]
-script = ExtResource("1_5o1mp")
+script = ExtResource("1_spwf2")
 
 [node name="TilemapLayers" type="Node2D" parent="."]
 
@@ -116,4 +117,8 @@ tile_set = SubResource("TileSet_5o1mp")
 [node name="MC" parent="." groups=["player"] instance=ExtResource("2_fngju")]
 position = Vector2(232, 168)
 
+[node name="FireballGenerator" parent="." instance=ExtResource("4_spwf2")]
+position = Vector2(104, 208)
+
 [connection signal="turn" from="MC" to="." method="_on_mc_turn"]
+[connection signal="turn" from="MC" to="FireballGenerator" method="_on_mc_turn"]
