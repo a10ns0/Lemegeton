@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxfn3peq1f4y5"]
+
+[ext_resource type="Script" uid="uid://dsb2vculhnt58" path="res://scenes/obstacles/fireball_generator/fireball_generator.gd" id="1_qxb48"]
+
+[node name="FireballGenerator" type="Node2D"]
+script = ExtResource("1_qxb48")
