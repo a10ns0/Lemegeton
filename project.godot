@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Lemegeton"
-run/main_scene="uid://tjuegrpjtf3l"
+run/main_scene="uid://b4qurmqny4x48"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -38,7 +38,7 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://scenes/dialogues//untitled.dialogue", "res://dialogues/test.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogues/test.dialogue")
 
 [rendering]
 
