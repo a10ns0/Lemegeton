@@ -1,5 +1,10 @@
 extends CharacterBody2D
 
+
+#variable que contiene el audio de herida cuando le hacen daño al personaje
+@onready var audio_hurt_player_2d =$Audio_hurt
+
+
 const tile_size: Vector2 = Vector2(16,16)
 var sprite_node_pos_tween: Tween
 signal turn(int)
@@ -11,15 +16,23 @@ func _physics_process(_delta: float) -> void:
 		if Input.is_action_just_pressed("ui_up") and !$Up.is_colliding():
 			_move(Vector2(0,-1))
 			turn.emit(1)
+			
+			
 		elif Input.is_action_just_pressed("ui_down") and !$Down.is_colliding():
 			_move(Vector2(0,1))
 			turn.emit(1)
+			
+			
 		elif Input.is_action_just_pressed("ui_left") and !$Left.is_colliding():
 			_move(Vector2(-1,0))
 			turn.emit(1)
+			
+			
 		elif Input.is_action_just_pressed("ui_right") and !$Right.is_colliding():
 			_move(Vector2(1,0))
 			turn.emit(1)
+			
+			
 func _move(dir: Vector2):
 	global_position += dir * tile_size
 	$Sprite2D.global_position -= dir * tile_size
@@ -29,3 +42,8 @@ func _move(dir: Vector2):
 	sprite_node_pos_tween = create_tween()
 	sprite_node_pos_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
 	sprite_node_pos_tween.tween_property($Sprite2D, "global_position", global_position, 0.2).set_trans(Tween.TRANS_SINE)
+
+
+##Señal que detecta cuando otra area golpea al jugador emitiendo un sonido (agregar eliminacion de vidas)
+func _on_detection_area_area_entered(area: Area2D) -> void:
+	audio_hurt_player_2d.play()

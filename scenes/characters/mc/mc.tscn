@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://djmmut7vn5ru5"]
+[gd_scene load_steps=6 format=3 uid="uid://djmmut7vn5ru5"]
 
 [ext_resource type="Texture2D" uid="uid://di10j1syiv7t1" path="res://assets/2D Pixel Dungeon Asset Pack/Character_animation/priests_idle/priest1/v1/priest1_v1_1.png" id="1_cbkbb"]
 [ext_resource type="Script" uid="uid://d12ynytpssttc" path="res://scenes/characters/mc/mc.gd" id="1_ji3hx"]
+[ext_resource type="AudioStream" uid="uid://ces8lbif17vlc" path="res://SFX/hurt1_character.mp3" id="3_86yhj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ji3hx"]
 size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86yhj"]
+size = Vector2(11, 11)
 
 [node name="MC" type="CharacterBody2D"]
 script = ExtResource("1_ji3hx")
@@ -35,3 +39,14 @@ hit_from_inside = true
 position = Vector2(8, 0)
 target_position = Vector2(8, 0)
 hit_from_inside = true
+
+[node name="Audio_hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_86yhj")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_86yhj")
+
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]

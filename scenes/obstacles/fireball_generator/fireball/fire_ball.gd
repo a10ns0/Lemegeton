@@ -18,3 +18,7 @@ func _move(dir: Vector2):
 	sprite_node_pos_tween = create_tween()
 	sprite_node_pos_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
 	sprite_node_pos_tween.tween_property($Sprite2D, "global_position", global_position, 0.2).set_trans(Tween.TRANS_SINE)
+
+
+
+	
