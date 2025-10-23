@@ -18,7 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.65764874, 0, 0.14896849, 1)
+color = Color(0.657649, 0, 0.148968, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(0.175, 0)
@@ -28,10 +28,10 @@ anchor_left = 0.352
 anchor_top = 0.234
 anchor_right = 0.642
 anchor_bottom = 0.758
-offset_left = 1.0400085
+offset_left = 1.04001
 offset_top = 39.096
-offset_right = 0.83999634
-offset_bottom = 38.951996
+offset_right = 0.839996
+offset_bottom = 38.952
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -52,7 +52,7 @@ offset_top = 50.0
 offset_right = 56.0
 offset_bottom = 85.0
 grow_horizontal = 2
-theme_override_colors/default_color = Color(0.32169807, 0, 0.052664153, 1)
+theme_override_colors/default_color = Color(0.321698, 0, 0.0526642, 1)
 text = "LEMEGETON"
 horizontal_alignment = 1
 
