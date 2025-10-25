@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://cw1ectcr4x2ib"]
+
+[ext_resource type="Script" uid="uid://m8a57katrqbn" path="res://hud_card.gd" id="1_viwr3"]
+[ext_resource type="Texture2D" uid="uid://gmcdcm0spc7l" path="res://assets/Icons/daemon-skull.png" id="2_82gtg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_82gtg"]
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[node name="hud_card_default" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_viwr3")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_82gtg")
+
+[node name="Icon" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.1
+anchor_bottom = 0.1
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("2_82gtg")
+expand_mode = 1
+stretch_mode = 5
