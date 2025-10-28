@@ -1,16 +1,16 @@
 extends Node2D
 
+@onready var turn = get_parent()
 
+func _ready():
+	turn.turn.connect(_on_turn)
+	
 const fireball = preload("res://scenes/obstacles/fireball_generator/fireball/fire_ball.tscn")
 var cont = 0
-signal fire_turn()
-func _on_mc_turn(contador):
-	cont += contador
-	fire_turn.emit()
-	
+func _on_turn(contador):
+	cont += contador	
 	if cont >= 3:
 		var shoot = fireball.instantiate()
-		self.add_child(shoot)
+		add_child(shoot)
 		cont = 0
-	fire_turn.emit(1)
 	pass

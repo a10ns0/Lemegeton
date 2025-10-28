@@ -120,7 +120,7 @@ tile_set = SubResource("TileSet_5o1mp")
 position = Vector2(232, 168)
 
 [node name="FireballGenerator" parent="." instance=ExtResource("4_spwf2")]
-position = Vector2(136, 168)
+position = Vector2(104, 208)
 
 [node name="Audio_music_backgroud" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_7uxs1")

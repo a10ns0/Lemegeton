@@ -4,33 +4,31 @@ extends CharacterBody2D
 #variable que contiene el audio de herida cuando le hacen daño al personaje
 @onready var audio_hurt_player_2d =$Audio_hurt
 
+signal action
 
 const tile_size: Vector2 = Vector2(16,16)
 var sprite_node_pos_tween: Tween
-signal turn(int)
+
 func _ready():
 	add_to_group("player")
-
+	
 func _physics_process(_delta: float) -> void:
 	if !sprite_node_pos_tween or !sprite_node_pos_tween.is_running():
 		if Input.is_action_just_pressed("ui_up") and !$Up.is_colliding():
 			_move(Vector2(0,-1))
-			turn.emit(1)
-			
+			action.emit()
 			
 		elif Input.is_action_just_pressed("ui_down") and !$Down.is_colliding():
 			_move(Vector2(0,1))
-			turn.emit(1)
-			
+			action.emit()
 			
 		elif Input.is_action_just_pressed("ui_left") and !$Left.is_colliding():
 			_move(Vector2(-1,0))
-			turn.emit(1)
-			
+			action.emit()
 			
 		elif Input.is_action_just_pressed("ui_right") and !$Right.is_colliding():
 			_move(Vector2(1,0))
-			turn.emit(1)
+			action	.emit()
 			
 			
 func _move(dir: Vector2):
