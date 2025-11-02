@@ -1,8 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://djmmut7vn5ru5"]
+[gd_scene load_steps=10 format=3 uid="uid://djmmut7vn5ru5"]
 
-[ext_resource type="Texture2D" uid="uid://di10j1syiv7t1" path="res://assets/2D Pixel Dungeon Asset Pack/Character_animation/priests_idle/priest1/v1/priest1_v1_1.png" id="1_cbkbb"]
 [ext_resource type="Script" uid="uid://d12ynytpssttc" path="res://scenes/characters/mc/mc.gd" id="1_ji3hx"]
+[ext_resource type="Texture2D" uid="uid://c14mjfxb4xg72" path="res://assets/2D Pixel Dungeon Asset Pack/Character_animation/priests_idle/priest2/v1/priest2_v1_1.png" id="2_jju7y"]
 [ext_resource type="AudioStream" uid="uid://ces8lbif17vlc" path="res://SFX/hurt1_character.mp3" id="3_86yhj"]
+[ext_resource type="Texture2D" uid="uid://l5glsofu2e5h" path="res://assets/2D Pixel Dungeon Asset Pack/Character_animation/priests_idle/priest2/v1/priest2_v1_2.png" id="3_fu3ld"]
+[ext_resource type="Texture2D" uid="uid://mm34ov80odc" path="res://assets/2D Pixel Dungeon Asset Pack/Character_animation/priests_idle/priest2/v1/priest2_v1_3.png" id="4_64a5w"]
+[ext_resource type="Texture2D" uid="uid://c13fjjm6g1sjv" path="res://assets/2D Pixel Dungeon Asset Pack/Character_animation/priests_idle/priest2/v1/priest2_v1_4.png" id="5_g80xm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_grlx2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jju7y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fu3ld")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_64a5w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g80xm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ji3hx"]
 size = Vector2(8, 8)
@@ -13,9 +36,10 @@ size = Vector2(11, 11)
 [node name="MC" type="CharacterBody2D"]
 script = ExtResource("1_ji3hx")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-texture = ExtResource("1_cbkbb")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 0)
+sprite_frames = SubResource("SpriteFrames_grlx2")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ji3hx")
