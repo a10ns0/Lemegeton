@@ -1,18 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://ja48ipuc5d0h"]
+[gd_scene load_steps=8 format=3 uid="uid://ja48ipuc5d0h"]
 
 [ext_resource type="Script" uid="uid://rsee575eam2" path="res://scenes/obstacles/fireball_generator/fireball/fire_ball.gd" id="1_5ic77"]
 [ext_resource type="Texture2D" uid="uid://0vtfcwnclik8" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/flamethrower/flamethrower_1_1.png" id="1_onghl"]
+[ext_resource type="Texture2D" uid="uid://dyl3mlv4ci3j1" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/flamethrower/flamethrower_1_2.png" id="3_majjo"]
+[ext_resource type="Texture2D" uid="uid://cxkq85h0cigog" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/flamethrower/flamethrower_1_3.png" id="4_jwlsn"]
+[ext_resource type="Texture2D" uid="uid://bfv6grd8ivyif" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/flamethrower/flamethrower_1_4.png" id="5_c3oda"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ic77"]
-size = Vector2(10, 9)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_djalk"]
+radius = 4.0
+height = 12.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yx5iq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_onghl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_majjo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jwlsn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_c3oda")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [node name="FireBall" type="Area2D"]
 script = ExtResource("1_5ic77")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3.5)
-shape = SubResource("RectangleShape2D_5ic77")
+position = Vector2(0, 1)
+scale = Vector2(1, 0.56)
+shape = SubResource("CapsuleShape2D_djalk")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_onghl")
-flip_v = true
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
+rotation = 3.13799
+scale = Vector2(0.575564, 0.565475)
+sprite_frames = SubResource("SpriteFrames_yx5iq")
+autoplay = "default"
+frame_progress = 0.556894
