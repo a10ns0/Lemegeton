@@ -1,6 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://sjrcbvkmnno1"]
+[gd_scene load_steps=14 format=4 uid="uid://sjrcbvkmnno1"]
 
 [ext_resource type="Texture2D" uid="uid://i8hwe7wsmkjk" path="res://assets/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_f1k8i"]
+[ext_resource type="PackedScene" uid="uid://djmmut7vn5ru5" path="res://scenes/characters/mc/mc.tscn" id="2_83l3i"]
+[ext_resource type="PackedScene" uid="uid://dheoirw86jxe7" path="res://scenes/obstacles/peaks/peak.tscn" id="2_hopjm"]
+[ext_resource type="AudioStream" uid="uid://dd3vsw8prewu0" path="res://SFX/dungeon_music.mp3" id="3_hopjm"]
+[ext_resource type="PackedScene" uid="uid://bxbwqtreamsq0" path="res://scenes/items/torch.tscn" id="4_68es0"]
+[ext_resource type="PackedScene" uid="uid://cbntvu8pv3opf" path="res://scenes/items/key.tscn" id="6_e74df"]
+[ext_resource type="PackedScene" uid="uid://b6isbwacal208" path="res://scenes/items/coin.tscn" id="7_tf87b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5byjt"]
 texture = ExtResource("1_f1k8i")
@@ -46,36 +52,66 @@ sources/0 = SubResource("TileSetAtlasSource_5byjt")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a68js"]
 texture = ExtResource("1_f1k8i")
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:4/0 = 0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:4/0 = 0
+5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:5/0 = 0
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:5/0 = 0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:5/0 = 0
+2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:5/0 = 0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:5/0 = 0
+4:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:5/0 = 0
+5:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:3/0 = 0
+6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:3/0 = 0
+7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:6/0 = 0
+7:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:6/0 = 0
+6:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:6/0 = 0
+5:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_fngju"]
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_a68js")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jwa6q"]
@@ -105,3 +141,42 @@ tile_set = SubResource("TileSet_fngju")
 
 [node name="Objects" type="TileMapLayer" parent="TilemapLayers"]
 tile_set = SubResource("TileSet_l4s77")
+
+[node name="peaks" type="Node2D" parent="."]
+
+[node name="peak" parent="peaks" instance=ExtResource("2_hopjm")]
+position = Vector2(266, 71)
+
+[node name="peak2" parent="peaks" instance=ExtResource("2_hopjm")]
+position = Vector2(151, 185)
+
+[node name="peak3" parent="peaks" instance=ExtResource("2_hopjm")]
+position = Vector2(135, 169)
+
+[node name="MC" parent="." groups=["player"] instance=ExtResource("2_83l3i")]
+position = Vector2(232, 168)
+
+[node name="Audio_music_backgroud" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hopjm")
+volume_db = -29.285
+autoplay = true
+
+[node name="Torchs" type="Node2D" parent="."]
+
+[node name="torch3" parent="Torchs" instance=ExtResource("4_68es0")]
+position = Vector2(76, 157)
+
+[node name="torch4" parent="Torchs" instance=ExtResource("4_68es0")]
+position = Vector2(340, 157)
+
+[node name="torch2" parent="Torchs" instance=ExtResource("4_68es0")]
+position = Vector2(76, 46)
+
+[node name="torch" parent="Torchs" instance=ExtResource("4_68es0")]
+position = Vector2(340, 45)
+
+[node name="key" parent="." instance=ExtResource("6_e74df")]
+position = Vector2(326, 151)
+
+[node name="coin" parent="." instance=ExtResource("7_tf87b")]
+position = Vector2(135, 186)

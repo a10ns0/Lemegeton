@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://jq4fnnb8y431"]
+
+[ext_resource type="Texture2D" uid="uid://tjxl63jqty1x" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/torch/candlestick_1_1.png" id="1_fiycj"]
+[ext_resource type="Texture2D" uid="uid://b8myrbsve3kbh" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/torch/candlestick_1_2.png" id="2_6vgip"]
+[ext_resource type="Texture2D" uid="uid://cqomder7tnrc7" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/torch/candlestick_1_3.png" id="3_qhlmf"]
+[ext_resource type="Texture2D" uid="uid://dcotg01lw8exw" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/torch/candlestick_1_4.png" id="4_xcyjf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_olyou"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fiycj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6vgip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qhlmf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xcyjf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="candlest" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_olyou")
+autoplay = "default"
+frame_progress = 0.272722

@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://12ph78vbu3ly"]
+
+[ext_resource type="Script" uid="uid://dm35cj61j6lm5" path="res://scenes/items/poison.gd" id="1_4n1o6"]
+[ext_resource type="Texture2D" uid="uid://cpbthfygm1em4" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/flasks/flasks_3_2.png" id="1_xuy0s"]
+[ext_resource type="Texture2D" uid="uid://d10ispim0roo3" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/flasks/flasks_3_3.png" id="2_4n1o6"]
+[ext_resource type="Texture2D" uid="uid://c47x8phyckwtx" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/flasks/flasks_3_4.png" id="3_n4imi"]
+[ext_resource type="AudioStream" uid="uid://de5mfen12k1t2" path="res://SFX/530242__tbsounddesigns__200809-shot-glass-strikes (mp3cut.net).mp3" id="5_n4imi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_si0o8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xuy0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4n1o6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_n4imi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xuy0s"]
+radius = 4.0
+
+[node name="poison" type="Node2D"]
+script = ExtResource("1_4n1o6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_si0o8")
+autoplay = "default"
+frame_progress = 0.0794265
+
+[node name="AreaPoison" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaPoison"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_xuy0s")
+
+[node name="Audio_poison" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_n4imi")
+pitch_scale = 0.54

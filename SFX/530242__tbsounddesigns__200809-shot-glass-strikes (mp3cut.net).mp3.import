@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://de5mfen12k1t2"
+path="res://.godot/imported/530242__tbsounddesigns__200809-shot-glass-strikes (mp3cut.net).mp3-4002285f36c0728fcb0cbb4fc67d3f33.mp3str"
+
+[deps]
+
+source_file="res://SFX/530242__tbsounddesigns__200809-shot-glass-strikes (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/530242__tbsounddesigns__200809-shot-glass-strikes (mp3cut.net).mp3-4002285f36c0728fcb0cbb4fc67d3f33.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

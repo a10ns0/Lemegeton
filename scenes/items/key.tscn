@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://cbntvu8pv3opf"]
+
+[ext_resource type="Texture2D" uid="uid://butlefc0dhrjo" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/keys/keys_1_1.png" id="1_6kn5x"]
+[ext_resource type="Script" uid="uid://7x0tl1cnqctw" path="res://scenes/items/key.gd" id="1_eib7p"]
+[ext_resource type="Texture2D" uid="uid://rgtgihxvugwn" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/keys/keys_1_2.png" id="2_88ujd"]
+[ext_resource type="Texture2D" uid="uid://3kpq8hjltj83" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/keys/keys_1_3.png" id="3_eib7p"]
+[ext_resource type="Texture2D" uid="uid://ddwirwkvm6qi7" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/keys/keys_1_4.png" id="4_nj34k"]
+[ext_resource type="AudioStream" uid="uid://bmkqsh1nmmv7" path="res://SFX/collect_effect (mp3cut.net).mp3" id="5_88ujd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8byg2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6kn5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_88ujd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_eib7p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nj34k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_88ujd"]
+radius = 3.16228
+
+[node name="key" type="Node2D"]
+script = ExtResource("1_eib7p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8byg2")
+autoplay = "default"
+frame_progress = 0.447062
+
+[node name="collect_key" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_88ujd")
+
+[node name="AreaKey" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaKey"]
+shape = SubResource("CircleShape2D_88ujd")
