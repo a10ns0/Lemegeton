@@ -44,4 +44,4 @@ rotation = 3.13799
 scale = Vector2(0.575564, 0.565475)
 sprite_frames = SubResource("SpriteFrames_yx5iq")
 autoplay = "default"
-frame_progress = 0.556894
+frame_progress = 0.889647

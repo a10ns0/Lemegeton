@@ -2,12 +2,18 @@ extends CharacterBody2D
 
 
 #variable que contiene el audio de herida cuando le hacen daño al personaje
-@onready var audio_hurt_player_2d =$Audio_hurt
-
+@onready var audio_hurt_player_2d =$Audio/Audio_hurt
+@onready var audio_collect_key =$Audio/collect_key
+@onready var audio_coin =$Audio/Audio_coin
+@onready var audio_poison =$Audio/Audio_poison
 
 const tile_size: Vector2 = Vector2(16,16)
 var sprite_node_pos_tween: Tween
 signal turn(int)
+
+### Stats personaje
+var lifes = 3
+
 func _ready():
 	add_to_group("player")
 
@@ -46,4 +52,23 @@ func _move(dir: Vector2):
 
 ##Señal que detecta cuando otra area golpea al jugador emitiendo un sonido (agregar eliminacion de vidas)
 func _on_detection_area_area_entered(area: Area2D) -> void:
-	audio_hurt_player_2d.play()
+	
+	print("Área detectada:", area.name)
+	if area.is_in_group("fireball") or area.name == "AreaPeak":
+		print("Área detectada:", area.name)
+		audio_hurt_player_2d.play()
+		lifes-=1
+	
+	if	area.name == "AreaKey":
+		print("Área detectada:", area.name)
+		audio_collect_key.play()
+	
+	if area.name == "AreaCoin":
+		print("Área detectada:", area.name)
+		audio_coin.play()
+	
+	if area.name == "AreaPoison":
+		print("Área detectada:", area.name)
+		audio_poison.play()
+		
+		

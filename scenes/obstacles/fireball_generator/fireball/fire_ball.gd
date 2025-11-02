@@ -4,6 +4,7 @@ const tile_size: Vector2 = Vector2(16,16)
 var sprite_node_pos_tween: Tween
 @onready var fire = get_parent()
 func _ready():
+	add_to_group("fireball")
 	fire.fire_turn.connect(_on_fire_turn)
 	
 func _on_fire_turn():
