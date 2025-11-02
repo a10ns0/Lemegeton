@@ -18,6 +18,15 @@ offset_right = 480.0
 offset_bottom = 255.0
 texture = ExtResource("2_4g82h")
 
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 120.0
+offset_right = 243.0
+offset_bottom = 151.0
+text = "lvl2"
+script = ExtResource("1_gjs0h")
+
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -25,10 +34,10 @@ anchor_left = 0.062
 anchor_top = 0.078
 anchor_right = 0.919
 anchor_bottom = 0.887
-offset_left = 90.24
-offset_top = 92.032
-offset_right = -273.12
-offset_bottom = -75.072
+offset_left = 178.24
+offset_top = 60.031998
+offset_right = -185.12
+offset_bottom = -107.07201
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -39,10 +48,32 @@ text = "lvl1"
 
 [node name="TextEdit" type="TextEdit" parent="."]
 layout_mode = 0
-offset_left = 48.0
-offset_top = 40.0
-offset_right = 184.0
-offset_bottom = 72.0
-text = "Levels"
+offset_left = 152.0
+offset_top = 32.0
+offset_right = 312.0
+offset_bottom = 64.0
+text = "Selecciona un nivel"
 
-[connection signal="pressed" from="GridContainer/Button" to="." method="_on_button_pressed"]
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 160.0
+offset_right = 243.0
+offset_bottom = 191.0
+text = "lvl3"
+script = ExtResource("1_gjs0h")
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 200.0
+offset_right = 243.0
+offset_bottom = 231.0
+text = "lvl4"
+script = ExtResource("1_gjs0h")
+
+[connection signal="pressed" from="Button2" to="Button2" method="_on_button_pressed" binds= ["res://scenes/levels/level_2/level_2.tscn"]]
+[connection signal="pressed" from="GridContainer/Button" to="." method="_on_button_pressed" binds= ["res://scenes/levels/level_1/level_1.tscn"]]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed" binds= ["res://scenes/levels/level_3/level_3.tscn"]]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed" binds= ["res://scenes/levels/level_4/level_4.tscn"]]
+[connection signal="pressed" from="Button3" to="." method="_on_button_pressed" binds= ["res://scenes/levels/level_4/level_4.tscn"]]

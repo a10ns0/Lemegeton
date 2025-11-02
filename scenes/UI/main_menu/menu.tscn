@@ -60,7 +60,7 @@ alignment = 1
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Play"
+text = "Jugar"
 script = ExtResource("1_pt1kw")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
@@ -72,6 +72,6 @@ offset_bottom = 217.0
 
 [node name="Button" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
-text = "Options"
+text = "Opciones"
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Lemegeton"
 run/main_scene="uid://b4qurmqny4x48"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
