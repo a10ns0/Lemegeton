@@ -1,3 +1,36 @@
-[gd_scene format=3 uid="uid://b68mmgpwff2a1"]
+[gd_scene load_steps=4 format=3 uid="uid://b68mmgpwff2a1"]
+
+[ext_resource type="Texture2D" uid="uid://bn0lar355p0vi" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/chest/chest_3.png" id="1_nbw5t"]
+[ext_resource type="Script" uid="uid://bd71albx71n0d" path="res://scenes/obstacles/box/box.gd" id="1_x7ad0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7ad0"]
+size = Vector2(16, 16)
 
 [node name="Box" type="Area2D"]
+script = ExtResource("1_x7ad0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nbw5t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_x7ad0")
+
+[node name="Up" type="RayCast2D" parent="."]
+position = Vector2(0, -8)
+target_position = Vector2(0, -8)
+hit_from_inside = true
+
+[node name="Down" type="RayCast2D" parent="."]
+position = Vector2(0, 8)
+target_position = Vector2(0, 8)
+hit_from_inside = true
+
+[node name="Left" type="RayCast2D" parent="."]
+position = Vector2(-8, 0)
+target_position = Vector2(-8, 0)
+hit_from_inside = true
+
+[node name="Right" type="RayCast2D" parent="."]
+position = Vector2(8, 0)
+target_position = Vector2(8, 0)
+hit_from_inside = true

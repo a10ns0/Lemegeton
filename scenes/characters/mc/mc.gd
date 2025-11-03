@@ -12,6 +12,7 @@ var sprite_node_pos_tween: Tween
 signal action(int)
 signal damage(int)
 signal interact()
+signal push()
 func _ready():
 	add_to_group("player")
 
@@ -21,6 +22,8 @@ func _physics_process(_delta: float) -> void:
 			action.emit(1)
 			if !$Up.is_colliding():
 				_move(Vector2(0,-1))
+			elif $Up.get_collider().is_in_group("push"):
+				push.emit()
 			
 			
 		elif Input.is_action_just_pressed("ui_down"):
