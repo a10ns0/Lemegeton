@@ -1,19 +1,16 @@
-[gd_scene load_steps=17 format=4 uid="uid://c84oh05u1rjeb"]
+[gd_scene load_steps=14 format=4 uid="uid://c84oh05u1rjeb"]
 
 [ext_resource type="Script" uid="uid://qsgly5wvtg1p" path="res://scenes/levels/level_1/level_manager.gd" id="1_spwf2"]
 [ext_resource type="Texture2D" uid="uid://i8hwe7wsmkjk" path="res://assets/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="2_5o1mp"]
 [ext_resource type="PackedScene" uid="uid://djmmut7vn5ru5" path="res://scenes/characters/mc/mc.tscn" id="2_fngju"]
-[ext_resource type="PackedScene" uid="uid://b6isbwacal208" path="res://scenes/items/coin.tscn" id="4_napug"]
 [ext_resource type="PackedScene" uid="uid://cxfn3peq1f4y5" path="res://scenes/obstacles/fireball_generator/fireball_generator.tscn" id="4_spwf2"]
-[ext_resource type="PackedScene" uid="uid://cbntvu8pv3opf" path="res://scenes/items/key.tscn" id="5_1jeig"]
 [ext_resource type="AudioStream" uid="uid://dd3vsw8prewu0" path="res://SFX/dungeon_music.mp3" id="5_7uxs1"]
 [ext_resource type="PackedScene" uid="uid://c6y3jwj3yeqb2" path="res://scenes/UI/hud/hud_card_diamond.tscn" id="6_58uyj"]
-[ext_resource type="PackedScene" uid="uid://12ph78vbu3ly" path="res://scenes/items/poison.tscn" id="6_hhmec"]
 [ext_resource type="PackedScene" uid="uid://d2fe3b6yrvqnp" path="res://scenes/UI/hud/hud_card_skeleton_key.tscn" id="7_ojo11"]
 [ext_resource type="PackedScene" uid="uid://cflv6a71cc8vf" path="res://scenes/UI/hud/hud_card_erlenmeyer.tscn" id="8_31rk5"]
 [ext_resource type="PackedScene" uid="uid://dheoirw86jxe7" path="res://scenes/obstacles/peaks/peak.tscn" id="12_wfdrs"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_spwf2"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_napug"]
 texture = ExtResource("2_5o1mp")
 1:1/0 = 0
 1:2/0 = 0
@@ -52,9 +49,9 @@ texture = ExtResource("2_5o1mp")
 8:7/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_7uxs1"]
-sources/0 = SubResource("TileSetAtlasSource_spwf2")
+sources/0 = SubResource("TileSetAtlasSource_napug")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fngju"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1jeig"]
 texture = ExtResource("2_5o1mp")
 0:1/0 = 0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -107,7 +104,7 @@ texture = ExtResource("2_5o1mp")
 
 [sub_resource type="TileSet" id="TileSet_5o1mp"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_fngju")
+sources/0 = SubResource("TileSetAtlasSource_1jeig")
 
 [node name="Level_1" type="Node2D"]
 script = ExtResource("1_spwf2")
@@ -122,20 +119,11 @@ tile_set = SubResource("TileSet_7uxs1")
 tile_map_data = PackedByteArray("AAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAFAAYAAAAAAAAAAAAFAAcAAAAAAAAAAAAFAAgAAAAAAAAAAAAFAAkAAAAAAAAAAAAFAAoAAAAAAAAAAAAFAAsAAAAAAAAAAAAFAAwAAAAAAAAAAAAFAA0AAAAAAAAAAAAFAA4AAAAAAAAAAAAFAA8AAAAAAAQAAAAGAA8AAAABAAQAAAAHAA8AAAABAAQAAAAIAA8AAAACAAQAAAAJAA8AAAADAAQAAAAKAA8AAAAEAAQAAAALAAwAAAAFAAEAAAALAA0AAAAFAAIAAAALAA4AAAAFAAMAAAALAA8AAAAFAAQAAAALAAYAAAAAAAUAAAALAAcAAAAFAAIAAAALAAgAAAAFAAMAAAALAAkAAAAFAAEAAAALAAoAAAAFAAIAAAALAAsAAAAFAAMAAAAMAAYAAAABAAUAAAANAAYAAAAFAAUAAAANAAcAAAAAAAEAAAANAAgAAAABAAAAAAAMAAgAAAAAAAAAAAAMAAkAAAAAAAEAAAAMAAoAAAAAAAIAAAAMAAwAAAAAAAQAAAAMAAsAAAAAAAMAAAANAAwAAAABAAQAAAAOAAwAAAACAAQAAAAPAAwAAAADAAQAAAAQAAwAAAAEAAQAAAARAAgAAAAFAAAAAAARAAkAAAAFAAEAAAARAAoAAAAFAAIAAAARAAsAAAAFAAMAAAARAAwAAAAFAAQAAAAQAAgAAAADAAAAAAAQAAYAAAAAAAUAAAAQAAcAAAAFAAEAAAASAAYAAAAFAAUAAAASAAcAAAAAAAEAAAASAAgAAAAAAAIAAAASAAkAAAAAAAQAAAATAAkAAAADAAUAAAAVAAkAAAAEAAUAAAAWAAkAAAAFAAQAAAAWAAcAAAAFAAEAAAAWAAgAAAAFAAIAAAAWAAUAAAAFAAIAAAAWAAYAAAAFAAIAAAAWAAQAAAAFAAEAAAAUAAcAAAACAAAAAAAVAAwAAAADAAAAAAAVAAoAAAADAAAAAAAWAAoAAAADAAAAAAAXAAoAAAAFAAAAAAAXAAsAAAAFAAEAAAAXAAwAAAAFAAIAAAAXAA0AAAAFAAMAAAAVAA4AAAADAAQAAAAWAA4AAAAEAAQAAAAXAA4AAAAFAAQAAAATAA0AAAAAAAMAAAATAA4AAAAAAAQAAAAUAA4AAAABAAQAAAATAAoAAAAAAAAAAAATAAsAAAAAAAEAAAATAAwAAAAAAAIAAAASAAMAAAABAAAAAAATAAMAAAACAAAAAAAUAAMAAAADAAAAAAAVAAMAAAAEAAAAAAAOAAMAAAACAAAAAAAPAAMAAAADAAAAAAAQAAMAAAAEAAAAAAARAAMAAAAEAAAAAAAKAAMAAAADAAAAAAALAAMAAAAEAAAAAAAMAAMAAAADAAAAAAANAAMAAAABAAAAAAAGAAMAAAABAAAAAAAHAAMAAAACAAAAAAAIAAMAAAABAAAAAAAJAAMAAAACAAAAAAAFAAMAAAAAAAAAAAAWAAMAAAAFAAAAAAARAAYAAAADAAQAAAARAAcAAAAFAAIAAAAMAAcAAAAAAAIAAAAUAAYAAAAAAAIAAAAGAAcAAAACAAAAAAAHAAcAAAACAAAAAAAIAAcAAAACAAAAAAAKAAoAAAACAAAAAAAJAAoAAAACAAAAAAAIAAoAAAACAAAAAAAGAA0AAAACAAAAAAAHAA0AAAACAAAAAAAIAA0AAAACAAAAAAA=")
 tile_set = SubResource("TileSet_5o1mp")
 
-[node name="peaks" parent="." instance=ExtResource("12_wfdrs")]
+[node name="peaks" parent="." groups=["damage"] instance=ExtResource("12_wfdrs")]
 position = Vector2(312, 105)
 
 [node name="MC" parent="." groups=["player"] instance=ExtResource("2_fngju")]
 position = Vector2(232, 168)
-
-[node name="coin" parent="." instance=ExtResource("4_napug")]
-position = Vector2(312, 136)
-
-[node name="key" parent="." instance=ExtResource("5_1jeig")]
-position = Vector2(167, 182)
-
-[node name="poison" parent="." instance=ExtResource("6_hhmec")]
-position = Vector2(362, 181)
 
 [node name="FireballGenerator" parent="." instance=ExtResource("4_spwf2")]
 position = Vector2(104, 208)
@@ -156,6 +144,3 @@ offset_right = 80.0
 [node name="hud_card_erlenmeyer" parent="CanvasLayer" instance=ExtResource("8_31rk5")]
 offset_left = 80.0
 offset_right = 120.0
-
-[connection signal="turn" from="MC" to="." method="_on_mc_turn"]
-[connection signal="turn" from="MC" to="FireballGenerator" method="_on_mc_turn"]

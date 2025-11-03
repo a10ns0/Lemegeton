@@ -9,34 +9,37 @@ extends CharacterBody2D
 
 const tile_size: Vector2 = Vector2(16,16)
 var sprite_node_pos_tween: Tween
-signal turn(int)
-
-### Stats personaje
-var lifes = 3
-
+signal action(int)
+signal damage(int)
+signal interact()
 func _ready():
 	add_to_group("player")
 
 func _physics_process(_delta: float) -> void:
 	if !sprite_node_pos_tween or !sprite_node_pos_tween.is_running():
-		if Input.is_action_just_pressed("ui_up") and !$Up.is_colliding():
-			_move(Vector2(0,-1))
-			turn.emit(1)
+		if Input.is_action_just_pressed("ui_up"):
+			action.emit(1)
+			if !$Up.is_colliding():
+				_move(Vector2(0,-1))
 			
 			
-		elif Input.is_action_just_pressed("ui_down") and !$Down.is_colliding():
-			_move(Vector2(0,1))
-			turn.emit(1)
+		elif Input.is_action_just_pressed("ui_down"):
+			action.emit(1)
+			if !$Down.is_colliding():
+				_move(Vector2(0,1))
 			
 			
-		elif Input.is_action_just_pressed("ui_left") and !$Left.is_colliding():
-			_move(Vector2(-1,0))
-			turn.emit(1)
+		elif Input.is_action_just_pressed("ui_left"):
+			action.emit(1)
+			if !$Left.is_colliding():
+				_move(Vector2(-1,0))
 			
 			
-		elif Input.is_action_just_pressed("ui_right") and !$Right.is_colliding():
-			_move(Vector2(1,0))
-			turn.emit(1)
+		elif Input.is_action_just_pressed("ui_right"):
+			action.emit(1)
+			if !$Right.is_colliding():
+				_move(Vector2(1,0))
+			
 			
 			
 func _move(dir: Vector2):
@@ -52,13 +55,12 @@ func _move(dir: Vector2):
 
 ##Señal que detecta cuando otra area golpea al jugador emitiendo un sonido (agregar eliminacion de vidas)
 func _on_detection_area_area_entered(area: Area2D) -> void:
-	
 	print("Área detectada:", area.name)
-	if area.is_in_group("fireball") or area.name == "AreaPeak":
-		print("Área detectada:", area.name)
-		audio_hurt_player_2d.play()
-		lifes-=1
-	
+	if area.is_in_group("damage"):
+		damage.emit(1)
+	if area.is_in_group("interactuable") and Input.is_action_just_pressed("interact"):
+		action.emit(1)
+		interact.emit()
 	if	area.name == "AreaKey":
 		print("Área detectada:", area.name)
 		audio_collect_key.play()
@@ -70,5 +72,6 @@ func _on_detection_area_area_entered(area: Area2D) -> void:
 	if area.name == "AreaPoison":
 		print("Área detectada:", area.name)
 		audio_poison.play()
-		
-		
+
+
+	

@@ -8,30 +8,38 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_yyfc5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_3rnnp")
+}],
+"loop": false,
+"name": &"down",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("1_3rnnp")
 }, {
 "duration": 1.0,
 "texture": ExtResource("2_yyfc5")
 }],
-"loop": true,
-"name": &"default",
-"speed": 1.0
+"loop": false,
+"name": &"up",
+"speed": 60.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3rnnp"]
-size = Vector2(14, 12.5)
+size = Vector2(16, 16)
 
-[node name="peak" type="Node2D"]
+[node name="AreaPeak" type="Area2D" groups=["damage"]]
 script = ExtResource("1_yyfc5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lbyfu")
-autoplay = "default"
-frame_progress = 0.507515
+animation = &"up"
 
-[node name="AreaPeak" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaPeak"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3rnnp")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
