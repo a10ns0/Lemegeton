@@ -1,11 +1,12 @@
-[gd_scene load_steps=14 format=4 uid="uid://sjrcbvkmnno1"]
+[gd_scene load_steps=13 format=4 uid="uid://sjrcbvkmnno1"]
 
 [ext_resource type="Texture2D" uid="uid://i8hwe7wsmkjk" path="res://assets/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_f1k8i"]
+[ext_resource type="Script" uid="uid://cblyf8ogo5xm2" path="res://scenes/levels/level_2/level_manager2.gd" id="1_tf87b"]
 [ext_resource type="PackedScene" uid="uid://djmmut7vn5ru5" path="res://scenes/characters/mc/mc.tscn" id="2_83l3i"]
 [ext_resource type="PackedScene" uid="uid://dheoirw86jxe7" path="res://scenes/obstacles/peaks/peak.tscn" id="2_hopjm"]
+[ext_resource type="PackedScene" uid="uid://b5dokfp4psch2" path="res://scenes/UI/health/health.tscn" id="2_tf87b"]
 [ext_resource type="AudioStream" uid="uid://dd3vsw8prewu0" path="res://SFX/dungeon_music.mp3" id="3_hopjm"]
 [ext_resource type="PackedScene" uid="uid://bxbwqtreamsq0" path="res://scenes/items/torch.tscn" id="4_68es0"]
-[ext_resource type="PackedScene" uid="uid://cbntvu8pv3opf" path="res://scenes/items/key.tscn" id="6_e74df"]
 [ext_resource type="PackedScene" uid="uid://b6isbwacal208" path="res://scenes/items/coin.tscn" id="7_tf87b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5byjt"]
@@ -114,20 +115,8 @@ texture = ExtResource("1_f1k8i")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_a68js")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jwa6q"]
-texture = ExtResource("1_f1k8i")
-6:8/0 = 0
-7:8/0 = 0
-8:8/0 = 0
-9:8/0 = 0
-8:9/0 = 0
-7:9/0 = 0
-9:9/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_l4s77"]
-sources/0 = SubResource("TileSetAtlasSource_jwa6q")
-
 [node name="Level_2" type="Node2D"]
+script = ExtResource("1_tf87b")
 
 [node name="TilemapLayers" type="Node2D" parent="."]
 
@@ -139,22 +128,9 @@ tile_set = SubResource("TileSet_5o1mp")
 tile_map_data = PackedByteArray("AAAEAAcAAAAAAAEAAAAEAAgAAAAAAAIAAAAEAAkAAAAAAAMAAAAEAAQAAAAAAAEAAAAEAAUAAAAAAAIAAAAEAAYAAAAAAAMAAAAHAAMAAAACAAAAAAAGAAMAAAACAAAAAAAFAAMAAAACAAAAAAAKAAMAAAACAAAAAAAJAAMAAAACAAAAAAAIAAMAAAACAAAAAAANAAMAAAAHAAYAAAAMAAMAAAAGAAYAAAALAAMAAAACAAAAAAAQAAMAAAACAAAAAAAPAAMAAAACAAAAAAAOAAMAAAACAAAAAAATAAMAAAACAAAAAAASAAMAAAACAAAAAAARAAMAAAACAAAAAAAVAAQAAAAAAAMAADAVAAUAAAAAAAIAADAJAAYAAAABAAUAAFAJAAcAAAACAAUAAFAIAAgAAAACAAAAAAAHAAgAAAADAAAAAAAGAAYAAAACAAUAAGAGAAcAAAABAAUAAGAIAAUAAAACAAUAAAAHAAUAAAABAAUAAAAJAAgAAAADAAAAAAAGAAgAAAACAAAAAAAGAAUAAAAFAAUAAGAJAAUAAAAFAAUAAAAFAAoAAAACAAAAAAAGAAoAAAADAAAAAAAHAAsAAAAFAAIAADAEAAoAAAAFAAQAAFAUAAMAAAACAAAAAAAEAAMAAAACAAUAAFAVAAMAAAACAAUAAGAHAAoAAAADAAUAAAALAAsAAAAEAAUAAAALAA4AAAACAAAAAAAMAAsAAAABAAUAAAAMAA4AAAADAAAAAAANAAsAAAACAAUAAAANAA4AAAACAAAAAAALAAwAAAACAAUAAGALAA0AAAABAAUAAGAOAAsAAAAEAAUAAFAOAAwAAAABAAUAAFAOAA0AAAACAAUAAFAOAA4AAAADAAAAAAAQAAUAAAAAAAUAAAAQAAgAAAACAAAAAAARAAUAAAABAAUAAAARAAgAAAADAAAAAAASAAUAAAACAAUAAAASAAgAAAACAAAAAAAQAAYAAAACAAUAAGAQAAcAAAABAAUAAGATAAUAAAAAAAUAAFATAAYAAAABAAUAAFATAAcAAAACAAUAAFATAAgAAAADAAAAAAAIAAwAAAAAAAUAAFAJAA0AAAAAAAUAAFAKAA4AAAABAAQAAAAPAA4AAAABAAQAAAAQAA0AAAAAAAUAAAARAAwAAAAAAAUAAAASAAsAAAADAAQAAGASAAoAAAADAAUAAGATAAoAAAACAAAAAAAUAAoAAAACAAAAAAAVAAgAAAACAAQAAGAVAAkAAAABAAQAAGAVAAYAAAAAAAEAADAVAAcAAAAAAAEAADASAAwAAAAAAAQAAGARAA0AAAAAAAQAAGAQAA4AAAAAAAQAAGAJAA4AAAAAAAQAAAAIAA0AAAAAAAQAAAAGABAAAAAFAAQAAFAHABAAAAAFAAIAAFAIABAAAAAFAAIAAFAJABAAAAADAAUAAAAVAAoAAAAAAAQAAGA=")
 tile_set = SubResource("TileSet_fngju")
 
-[node name="Objects" type="TileMapLayer" parent="TilemapLayers"]
-tile_set = SubResource("TileSet_l4s77")
-
-[node name="peaks" type="Node2D" parent="."]
-
-[node name="peak" parent="peaks" instance=ExtResource("2_hopjm")]
-position = Vector2(266, 71)
-
-[node name="peak2" parent="peaks" instance=ExtResource("2_hopjm")]
-position = Vector2(151, 185)
-
-[node name="peak3" parent="peaks" instance=ExtResource("2_hopjm")]
-position = Vector2(135, 169)
-
-[node name="MC" parent="." groups=["player"] instance=ExtResource("2_83l3i")]
-position = Vector2(232, 168)
+[node name="Health" parent="." instance=ExtResource("2_tf87b")]
+offset_left = 480.0
+offset_right = 480.0
 
 [node name="Audio_music_backgroud" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_hopjm")
@@ -175,8 +151,23 @@ position = Vector2(76, 46)
 [node name="torch" parent="Torchs" instance=ExtResource("4_68es0")]
 position = Vector2(340, 45)
 
-[node name="key" parent="." instance=ExtResource("6_e74df")]
-position = Vector2(326, 151)
-
 [node name="coin" parent="." instance=ExtResource("7_tf87b")]
 position = Vector2(135, 186)
+
+[node name="peak4" parent="." instance=ExtResource("2_hopjm")]
+position = Vector2(296, 72)
+
+[node name="peak" parent="." instance=ExtResource("2_hopjm")]
+position = Vector2(264, 72)
+
+[node name="peak2" parent="." instance=ExtResource("2_hopjm")]
+position = Vector2(151, 185)
+
+[node name="peak3" parent="." instance=ExtResource("2_hopjm")]
+position = Vector2(135, 169)
+
+[node name="coin2" parent="." instance=ExtResource("7_tf87b")]
+position = Vector2(280, 72)
+
+[node name="MC" parent="." instance=ExtResource("2_83l3i")]
+position = Vector2(232, 168)

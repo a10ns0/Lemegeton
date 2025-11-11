@@ -29,13 +29,18 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("1_n4fvl")
+stretch_mode = 4
 
 [node name="2" type="TextureRect" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("1_n4fvl")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="3" type="TextureRect" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("1_n4fvl")
+expand_mode = 1
+stretch_mode = 4

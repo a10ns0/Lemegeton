@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bxcdx2opxom6t" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/coin/coin_4.png" id="4_b82bw"]
 [ext_resource type="AudioStream" uid="uid://cga0s2ltkx6pm" path="res://SFX/402288__lilmati__retro-coin-02.wav" id="6_5cp4d"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_weiq1"]
+size = Vector2(17, 17)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_6stmk"]
 animations = [{
 "frames": [{
@@ -27,21 +30,17 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_e764u"]
-radius = 3.16228
-
-[node name="coin" type="Node2D"]
+[node name="Coin" type="Area2D" groups=["interact"]]
 script = ExtResource("1_weiq1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_weiq1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6stmk")
 autoplay = "default"
 frame_progress = 0.0543643
-
-[node name="AreaCoin" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCoin"]
-shape = SubResource("CircleShape2D_e764u")
 
 [node name="Audio_coin" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_5cp4d")

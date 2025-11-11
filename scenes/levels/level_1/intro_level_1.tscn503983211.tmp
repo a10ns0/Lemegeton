@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://bajbd10ae02c6"]
+
+[ext_resource type="Script" uid="uid://04d8ocfx1q4t" path="res://scenes/levels/level_1/intro_level_1.gd" id="1_fnw6k"]
+[ext_resource type="Texture2D" uid="uid://b4qmxi47onx2e" path="res://assets/comic/telefono.png" id="2_ekb2r"]
+[ext_resource type="Texture2D" uid="uid://dkl470oxf5sci" path="res://assets/comic/contestar.png" id="3_74cms"]
+[ext_resource type="Texture2D" uid="uid://byqdmsl02e4i" path="res://assets/comic/auto.png" id="4_lvhss"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_fnw6k")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_right = 480.0
+offset_bottom = 256.0
+color = Color(0, 0, 0, 1)
+
+[node name="1" type="TextureRect" parent="."]
+visible = false
+offset_left = 40.0
+offset_top = 16.0
+offset_right = 184.0
+offset_bottom = 120.0
+texture = ExtResource("2_ekb2r")
+expand_mode = 1
+
+[node name="2" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 256.0
+offset_top = 8.0
+offset_right = 424.0
+offset_bottom = 120.0
+grow_horizontal = 0
+texture = ExtResource("3_74cms")
+expand_mode = 1
+
+[node name="3" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 48.0
+offset_top = 144.0
+offset_right = 424.0
+offset_bottom = 248.0
+grow_horizontal = 0
+texture = ExtResource("4_lvhss")
+expand_mode = 1

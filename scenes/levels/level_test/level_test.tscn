@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=4 uid="uid://d18slyxeuihjx"]
 
 [ext_resource type="Texture2D" uid="uid://i8hwe7wsmkjk" path="res://assets/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_nb07k"]
-[ext_resource type="Script" uid="uid://qsgly5wvtg1p" path="res://scenes/levels/level_1/level_manager.gd" id="1_xof1x"]
+[ext_resource type="Script" uid="uid://qsgly5wvtg1p" path="res://scenes/levels/level_1/level_manager1.gd" id="1_xof1x"]
 [ext_resource type="PackedScene" uid="uid://djmmut7vn5ru5" path="res://scenes/characters/mc/mc.tscn" id="2_sx8gc"]
 [ext_resource type="PackedScene" uid="uid://dheoirw86jxe7" path="res://scenes/obstacles/peaks/peak.tscn" id="3_jaywt"]
 [ext_resource type="PackedScene" uid="uid://cxfn3peq1f4y5" path="res://scenes/obstacles/fireball_generator/fireball_generator.tscn" id="4_2hfwj"]

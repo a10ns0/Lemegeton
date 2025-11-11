@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var audio_collect_key =$Audio/collect_key
 @onready var audio_coin =$Audio/Audio_coin
 @onready var audio_poison =$Audio/Audio_poison
-
+var current_interact_area: Area2D = null
 const tile_size: Vector2 = Vector2(16,16)
 var sprite_node_pos_tween: Tween
 signal action(int)
@@ -15,7 +15,16 @@ signal interact()
 signal push()
 func _ready():
 	add_to_group("player")
-
+func _process(delta: float) -> void:
+	if current_interact_area != null:
+		if Input.is_action_just_pressed("interact"): 
+			print("¡Interacción realizada!")
+			action.emit(1)
+			interact.emit() 
+			audio_coin.play() 
+			current_interact_area.queue_free()
+			current_interact_area = null
+			
 func _physics_process(_delta: float) -> void:
 	if !sprite_node_pos_tween or !sprite_node_pos_tween.is_running():
 		if Input.is_action_just_pressed("ui_up"):
@@ -61,20 +70,16 @@ func _on_detection_area_area_entered(area: Area2D) -> void:
 	print("Área detectada:", area.name)
 	if area.is_in_group("damage"):
 		damage.emit(1)
-	if area.is_in_group("interactuable") and Input.is_action_just_pressed("interact"):
-		action.emit(1)
-		interact.emit()
-	if	area.name == "AreaKey":
-		print("Área detectada:", area.name)
-		audio_collect_key.play()
-	
-	if area.name == "AreaCoin":
-		print("Área detectada:", area.name)
-		audio_coin.play()
-	
-	if area.name == "AreaPoison":
-		print("Área detectada:", area.name)
-		audio_poison.play()
+	if area.is_in_group("interact"):
+		current_interact_area = area 
+		print("Ahora puedes interactuar.")
+
+func _on_detection_area_area_exited(area: Area2D) -> void:
+	if area == current_interact_area:
+		current_interact_area = null
+		print("Ya no estás en el área de interacción.")
+
+		
 
 
 	
