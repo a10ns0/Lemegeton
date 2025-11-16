@@ -9,8 +9,8 @@ extends CharacterBody2D
 var current_interact_area: Area2D = null
 const tile_size: Vector2 = Vector2(16,16)
 var sprite_node_pos_tween: Tween
-signal action(int)
-signal damage(int)
+signal action()
+signal damage()
 signal interact()
 signal push()
 func _ready():
@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 	if current_interact_area != null:
 		if Input.is_action_just_pressed("interact"): 
 			print("¡Interacción realizada!")
-			action.emit(1)
+			action.emit()
 			interact.emit() 
 			audio_coin.play() 
 			current_interact_area.queue_free()
@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	if !sprite_node_pos_tween or !sprite_node_pos_tween.is_running():
 		if Input.is_action_just_pressed("ui_up"):
-			action.emit(1)
+			action.emit()
 			if !$Up.is_colliding():
 				_move(Vector2(0,-1))
 			elif $Up.get_collider().is_in_group("push"):
@@ -36,19 +36,19 @@ func _physics_process(_delta: float) -> void:
 			
 			
 		elif Input.is_action_just_pressed("ui_down"):
-			action.emit(1)
+			action.emit()
 			if !$Down.is_colliding():
 				_move(Vector2(0,1))
 			
 			
 		elif Input.is_action_just_pressed("ui_left"):
-			action.emit(1)
+			action.emit()
 			if !$Left.is_colliding():
 				_move(Vector2(-1,0))
 			
 			
 		elif Input.is_action_just_pressed("ui_right"):
-			action.emit(1)
+			action.emit()
 			if !$Right.is_colliding():
 				_move(Vector2(1,0))
 			
@@ -69,7 +69,7 @@ func _move(dir: Vector2):
 func _on_detection_area_area_entered(area: Area2D) -> void:
 	print("Área detectada:", area.name)
 	if area.is_in_group("damage"):
-		damage.emit(1)
+		damage.emit()
 	if area.is_in_group("interact"):
 		current_interact_area = area 
 		print("Ahora puedes interactuar.")

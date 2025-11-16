@@ -5,9 +5,7 @@ var health = 3
 @onready var _2 = $"PanelContainer/HBoxContainer/2"
 @onready var _3 = $"PanelContainer/HBoxContainer/3"
 
-func _ready():
-	level.dmg.connect(_on_mc_damage)
-func _on_mc_damage(cont):
+func _on_dealt_damage():
 	health-=1
 	if _1.visible:
 		_1.visible = false
@@ -15,6 +13,8 @@ func _on_mc_damage(cont):
 		_2.visible = false
 	elif _3.visible:
 		_3.visible = false
-		get_tree().change_scene_to_file("res://scenes/UI/level_selector/level_selector.tscn")
+		call_deferred("change_scene")
 	
+func change_scene():
+	get_tree().change_scene_to_file("res://scenes/UI/level_selector/level_selector.tscn")
 	

@@ -1,13 +1,11 @@
 extends Node2D
 
-@onready var turno = get_parent()
 
 
 func _ready():
-	turno.turn.connect(_on_turn)
 	$CollisionShape2D.disabled = true
 	
-func _on_turn(cont):
+func _on_turn():
 	if $CollisionShape2D.disabled:
 		$AnimatedSprite2D.play("up")
 		$CollisionShape2D.disabled = false

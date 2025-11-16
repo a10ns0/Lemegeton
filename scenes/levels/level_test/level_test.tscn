@@ -117,7 +117,7 @@ tile_set = SubResource("TileSet_xof1x")
 tile_map_data = PackedByteArray("AAAHAAQAAAAAAAMAAAAHAAUAAAAAAAMAAAAHAAYAAAAAAAMAAAAHAAcAAAAAAAMAAAA=")
 tile_set = SubResource("TileSet_jaywt")
 
-[node name="FireballGenerator" parent="." instance=ExtResource("4_2hfwj")]
+[node name="FireballGenerator" parent="." groups=["trap"] instance=ExtResource("4_2hfwj")]
 position = Vector2(320, 192)
 
 [node name="peak" parent="." instance=ExtResource("3_jaywt")]

@@ -2,12 +2,8 @@ extends Area2D
 
 const tile_size: Vector2 = Vector2(16,16)
 var sprite_node_pos_tween: Tween
-@onready var turn = get_parent()
 
-func _ready():
-	turn.turn.connect(_on_turn)
-	
-func _on_turn(cont):
+func _on_turn():
 	_move(Vector2(0,-1))
 
 func _move(dir: Vector2):
