@@ -1,14 +1,16 @@
-[gd_scene load_steps=14 format=4 uid="uid://bnqyddo6bdn7h"]
+[gd_scene load_steps=16 format=4 uid="uid://bnqyddo6bdn7h"]
 
 [ext_resource type="Script" uid="uid://qsgly5wvtg1p" path="res://scenes/levels/level_1/level_manager1.gd" id="1_xj1dc"]
 [ext_resource type="Texture2D" uid="uid://i8hwe7wsmkjk" path="res://assets/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="2_ck6dj"]
 [ext_resource type="PackedScene" uid="uid://dheoirw86jxe7" path="res://scenes/obstacles/peaks/peak.tscn" id="3_djkef"]
 [ext_resource type="PackedScene" uid="uid://djmmut7vn5ru5" path="res://scenes/characters/mc/mc.tscn" id="4_1aa0w"]
+[ext_resource type="AudioStream" uid="uid://tdaxmnl5y50e" path="res://SFX/dungeon_echoes.mp3" id="6_3m403"]
 [ext_resource type="PackedScene" uid="uid://b5dokfp4psch2" path="res://scenes/UI/health/health.tscn" id="6_cnx6y"]
-[ext_resource type="AudioStream" uid="uid://dd3vsw8prewu0" path="res://SFX/dungeon_music.mp3" id="7_cqgt0"]
 [ext_resource type="PackedScene" uid="uid://b6isbwacal208" path="res://scenes/items/coin.tscn" id="8_e1g8d"]
 [ext_resource type="PackedScene" uid="uid://cbntvu8pv3opf" path="res://scenes/items/key.tscn" id="8_h7lcx"]
 [ext_resource type="PackedScene" uid="uid://12ph78vbu3ly" path="res://scenes/items/poison.tscn" id="9_s6p4v"]
+[ext_resource type="PackedScene" uid="uid://bdn3rgypfibdx" path="res://scenes/UI/fade_effect.tscn" id="10_tbqpl"]
+[ext_resource type="PackedScene" uid="uid://dypjdd8rl3nwo" path="res://scenes/UI/level_end.tscn" id="11_3m403"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_napug"]
 texture = ExtResource("2_ck6dj")
@@ -106,7 +108,7 @@ texture = ExtResource("2_ck6dj")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_1jeig")
 
-[node name="Level_1" type="Node2D"]
+[node name="Level_tutorial" type="Node2D"]
 script = ExtResource("1_xj1dc")
 
 [node name="TilemapLayers" type="Node2D" parent="."]
@@ -117,11 +119,11 @@ tile_map_data = PackedByteArray("AAAAAAEAAAAIAAcAAAAAAAMAAAAIAAcAAAABAAIAAAAIAAc
 tile_set = SubResource("TileSet_7uxs1")
 
 [node name="Walls" type="TileMapLayer" parent="TilemapLayers"]
-tile_map_data = PackedByteArray("AAALAAQAAAABAAAAAAAMAAQAAAACAAAAAAANAAQAAAADAAAAAAAOAAQAAAAEAAAAAAAGAAsAAAAAAAUAAFAGAAwAAAAAAAIAAAAGAA0AAAAAAAMAAAAGAA4AAAAAAAQAAAAHAA4AAAABAAQAAAAIAA4AAAACAAQAAAAJAA4AAAADAAQAAAAKAA4AAAAEAAQAAAALAAsAAAAAAAUAAAALAAwAAAAFAAIAAAALAA0AAAAFAAMAAAALAA4AAAAFAAQAAAAOAAsAAAADAAUAAAAOAAwAAAAAAAIAAAAOAA0AAAAAAAMAAAAOAA4AAAAAAAQAAAAPAA4AAAABAAQAAAAQAA4AAAACAAQAAAARAA4AAAADAAQAAAASAA4AAAAEAAQAAAATAAsAAAAEAAUAAAATAAwAAAAFAAIAAAATAA0AAAAFAAMAAAATAA4AAAAFAAQAAAAMAAsAAAABAAUAAAANAAsAAAACAAUAAAAGAAcAAAABAAAAAAAHAAcAAAACAAAAAAAIAAcAAAADAAAAAAAJAAcAAAAEAAAAAAACAAcAAAABAAAAAAADAAcAAAACAAAAAAAEAAcAAAADAAAAAAAFAAcAAAAEAAAAAAAQAAcAAAABAAAAAAARAAcAAAACAAAAAAASAAcAAAADAAAAAAATAAcAAAAEAAAAAAAUAAcAAAABAAAAAAAVAAcAAAACAAAAAAAWAAcAAAADAAAAAAAXAAcAAAAEAAAAAAAYAAcAAAACAAAAAAAZAAcAAAADAAAAAAAKAAcAAAABAAAAAAAPAAcAAAABAAAAAAAPAAUAAAAFAAIAAAAPAAYAAAAFAAMAAAAKAAYAAAAFAAIAADAKAAUAAAAFAAMAADAKAAQAAAAAAAAAAAAPAAQAAAAAAAAAADABAAcAAAAAAAEAAAABAAgAAAAAAAIAAAABAAkAAAAAAAMAAAADAAsAAAAAAAEAAGAEAAsAAAAAAAIAAGAFAAsAAAAAAAMAAGABAAsAAAAFAAQAAFAaAAsAAAAAAAQAAGAaAAgAAAAFAAAAAAAaAAkAAAAFAAEAAAAaAAoAAAAFAAIAAAAaAAcAAAAFAAAAAAAXAAsAAAABAAQAAAAYAAsAAAACAAQAAAAZAAsAAAADAAQAAAAUAAsAAAABAAQAAAAVAAsAAAACAAQAAAAWAAsAAAADAAQAAAACAAsAAAABAAQAAAABAAoAAAABAAQAAFA=")
+tile_map_data = PackedByteArray("AAALAAQAAAABAAAAAAAMAAQAAAACAAAAAAANAAQAAAADAAAAAAAOAAQAAAAEAAAAAAAGAAsAAAAAAAUAAFAGAAwAAAAAAAIAAAAGAA0AAAAAAAMAAAAGAA4AAAAAAAQAAAAHAA4AAAABAAQAAAAIAA4AAAACAAQAAAAJAA4AAAADAAQAAAAKAA4AAAAEAAQAAAALAAsAAAAAAAUAAAALAAwAAAAFAAIAAAALAA0AAAAFAAMAAAALAA4AAAAFAAQAAAAOAAsAAAADAAUAAAAOAAwAAAAAAAIAAAAOAA0AAAAAAAMAAAAOAA4AAAAAAAQAAAAPAA4AAAABAAQAAAAQAA4AAAACAAQAAAARAA4AAAADAAQAAAASAA4AAAAEAAQAAAATAAsAAAAEAAUAAAATAAwAAAAFAAIAAAATAA0AAAAFAAMAAAATAA4AAAAFAAQAAAAMAAsAAAABAAUAAAANAAsAAAACAAUAAAAGAAcAAAABAAAAAAAHAAcAAAACAAAAAAAIAAcAAAADAAAAAAAJAAcAAAAEAAAAAAACAAcAAAABAAAAAAADAAcAAAACAAAAAAAEAAcAAAADAAAAAAAFAAcAAAAEAAAAAAAQAAcAAAABAAAAAAARAAcAAAACAAAAAAASAAcAAAADAAAAAAATAAcAAAAEAAAAAAAUAAcAAAABAAAAAAAVAAcAAAACAAAAAAAWAAcAAAADAAAAAAAXAAcAAAAEAAAAAAAYAAcAAAACAAAAAAAZAAcAAAADAAAAAAAKAAcAAAABAAAAAAAPAAcAAAABAAAAAAAPAAUAAAAFAAIAAAAPAAYAAAAFAAMAAAAKAAYAAAAFAAIAADAKAAUAAAAFAAMAADAKAAQAAAAAAAAAAAAPAAQAAAAAAAAAADABAAcAAAAAAAEAAAABAAgAAAAAAAIAAAABAAkAAAAAAAMAAAADAAsAAAAAAAEAAGAEAAsAAAAAAAIAAGAFAAsAAAAAAAMAAGABAAsAAAAFAAQAAFAaAAsAAAAAAAQAAGAaAAoAAAAFAAIAAAAaAAcAAAAFAAAAAAAXAAsAAAABAAQAAAAYAAsAAAACAAQAAAAZAAsAAAADAAQAAAAUAAsAAAABAAQAAAAVAAsAAAACAAQAAAAWAAsAAAADAAQAAAACAAsAAAABAAQAAAABAAoAAAABAAQAAFAaAAkAAAABAAUAAGAaAAgAAAABAAUAAGA=")
 tile_set = SubResource("TileSet_5o1mp")
 
 [node name="peaks" parent="." instance=ExtResource("3_djkef")]
-position = Vector2(360, 136)
+position = Vector2(314, 137)
 
 [node name="MC" parent="." instance=ExtResource("4_1aa0w")]
 position = Vector2(43, 133)
@@ -136,8 +138,8 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Audio_music_backgroud" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_cqgt0")
-volume_db = -29.285
+stream = ExtResource("6_3m403")
+volume_db = -16.103
 autoplay = true
 
 [node name="Coin" parent="." instance=ExtResource("8_e1g8d")]
@@ -148,3 +150,12 @@ position = Vector2(273, 185)
 
 [node name="poison" parent="." groups=["interact"] instance=ExtResource("9_s6p4v")]
 position = Vector2(145, 185)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FadeEffect" parent="CanvasLayer" instance=ExtResource("10_tbqpl")]
+visible = false
+
+[node name="Level_end" parent="." instance=ExtResource("11_3m403")]
+position = Vector2(415, 128)
+rotation = 1.5707964
