@@ -13,8 +13,10 @@ func _on_dealt_damage():
 		_2.visible = false
 	elif _3.visible:
 		_3.visible = false
+
+		await  get_tree().create_timer(0.3).timeout
 		call_deferred("change_scene")
 	
 func change_scene():
-	get_tree().change_scene_to_file("res://scenes/UI/level_selector/level_selector.tscn")
+	get_tree().change_scene_to_file("res://scenes/UI/game_over/game_over.tscn")
 	
