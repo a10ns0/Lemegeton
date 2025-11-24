@@ -7,7 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://ddwirwkvm6qi7" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/keys/keys_1_4.png" id="4_nj34k"]
 [ext_resource type="AudioStream" uid="uid://bmkqsh1nmmv7" path="res://SFX/collect_effect (mp3cut.net).mp3" id="5_88ujd"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_8byg2"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_88ujd"]
+radius = 5.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eib7p"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -27,21 +30,15 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_88ujd"]
-radius = 3.16228
-
-[node name="key" type="Node2D"]
+[node name="AreaKey" type="Area2D"]
 script = ExtResource("1_eib7p")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_8byg2")
-autoplay = "default"
-frame_progress = 0.447062
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_88ujd")
 
 [node name="collect_key" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_88ujd")
 
-[node name="AreaKey" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaKey"]
-shape = SubResource("CircleShape2D_88ujd")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_eib7p")
+autoplay = "default"

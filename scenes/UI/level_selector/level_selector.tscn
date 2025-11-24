@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgl1vhvw6elmf"]
+[gd_scene load_steps=7 format=3 uid="uid://bgl1vhvw6elmf"]
 
 [ext_resource type="Script" uid="uid://d067jwdlhm8cc" path="res://scenes/UI/level_selector/level_selector.gd" id="1_gjs0h"]
 [ext_resource type="Texture2D" uid="uid://c5p4lh8gsxwh4" path="res://assets/menu/css-pattern-by-magicpattern.png" id="2_4g82h"]
 [ext_resource type="Shader" uid="uid://kvxjx07avpbr" path="res://scenes/UI/level_selector/level_selector.gdshader" id="2_bhhs3"]
 [ext_resource type="Script" uid="uid://6jyxasnc58b0" path="res://scenes/UI/level_selector/texture_rect.gd" id="4_5534g"]
+[ext_resource type="AudioStream" uid="uid://b4ionvimsqihk" path="res://SFX/dungeon_echoes2.mp3" id="5_d6wuv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5534g"]
 shader = ExtResource("2_bhhs3")
@@ -91,6 +92,11 @@ offset_right = 243.0
 offset_bottom = 231.0
 text = "lvl4"
 script = ExtResource("1_gjs0h")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_d6wuv")
+pitch_scale = 0.3
+autoplay = true
 
 [connection signal="pressed" from="Button2" to="Button2" method="_on_button_pressed" binds= ["res://scenes/levels/level_2/level_2.tscn"]]
 [connection signal="pressed" from="GridContainer/Button" to="." method="_on_button_pressed" binds= ["res://scenes/levels/level_1/level_1.tscn"]]
