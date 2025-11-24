@@ -107,6 +107,8 @@ sources/0 = SubResource("TileSetAtlasSource_2hfwj")
 [node name="LevelTest" type="Node2D"]
 script = ExtResource("1_xof1x")
 
+[node name="dialogue" type="Node" parent="."]
+
 [node name="TilemapLayers" type="Node2D" parent="."]
 
 [node name="Floor" type="TileMapLayer" parent="TilemapLayers"]

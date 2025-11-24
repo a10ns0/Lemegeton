@@ -1,17 +1,17 @@
 extends Node
 var cont = 0
-signal turn (int)
-signal dmg (int)
+const traps = "trap"
+const turn = "_on_turn"
 func _ready():
 	$MC.action.connect(_on_mc_action)
 	$MC.damage.connect(_on_mc_damage)
 	$MC.interact.connect(_on_mc_interact)
 	
-func _on_mc_action(cont):
-	turn.emit(1)
+func _on_mc_action():
+	get_tree().call_group(traps, turn)
 	pass
-func _on_mc_damage(cont):
-	dmg.emit(1)
+func _on_mc_damage():
+	$Health._on_dealt_damage()
 	pass
 func _on_mc_interact():
 	cont+=1
