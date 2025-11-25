@@ -16,30 +16,63 @@ var sprite_node_pos_tween: Tween
 
 signal action()
 signal damage()
-signal interact()
+
+#signal interact()
+# 1. Modifica la definición de la señal para aceptar un argumento
+signal interact(tipo_objeto, area) # <--- CAMBIO AQUÍ: Añadimos un parámetro
+
 signal push()
+
 func _ready():
 	add_to_group("player")
+
+	
+#func _process(delta: float) -> void:
+	#if current_interact_area != null:
+		#if Input.is_action_just_pressed("interact"): 
+			#print("¡Interacción realizada!")
+			#action.emit()
+			#interact.emit()			
+			#
+			###Se hace una diferenciacion entre que elemento es para reproducir el audio
+			#if current_interact_area.is_in_group("coin"):
+				#audio_coin.play() 
+			#elif current_interact_area.is_in_group("key"):
+				#audio_collect_key.play()
+			#elif current_interact_area.is_in_group("poison"):
+				#audio_poison.play() 	
+			#
+			###Se elimina el area
+			#current_interact_area.queue_free()
+			#current_interact_area = null
+				
 func _process(delta: float) -> void:
 	if current_interact_area != null:
 		if Input.is_action_just_pressed("interact"): 
 			print("¡Interacción realizada!")
 			action.emit()
-			interact.emit()			
 			
-			##Se hace una diferenciacion entre que elemento es para reproducir el audio
+			# Variable temporal para saber qué recogimos
+			var tipo_recolectado = "" 
+			
+			## Se hace una diferenciacion entre que elemento es para reproducir el audio
+			# Y AHORA TAMBIÉN GUARDAMOS EL TIPO
 			if current_interact_area.is_in_group("coin"):
+				tipo_recolectado = "coin"
 				audio_coin.play() 
 			elif current_interact_area.is_in_group("key"):
+				tipo_recolectado = "key"
 				audio_collect_key.play()
-			elif current_interact_area.is_in_group("poison"):
-				audio_poison.play() 	
+			elif current_interact_area.is_in_group("poison"): # Asumiendo que "potion" es el grupo
+				tipo_recolectado = "poison"
+				audio_poison.play() 
 			
-			##Se elimina el area
-			current_interact_area.queue_free()
-			current_interact_area = null
-				
-				
+			# Emitimos la señal CON el dato del tipo recolectado
+			interact.emit(tipo_recolectado, current_interact_area) # <--- CAMBIO AQUÍ
+			
+			## Se elimina el area
+			#current_interact_area.queue_free()
+			#current_interact_area = null				
 				
 				
 			
