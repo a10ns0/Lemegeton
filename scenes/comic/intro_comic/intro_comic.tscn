@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://bajbd10ae02c6"]
 
 [ext_resource type="Script" uid="uid://04d8ocfx1q4t" path="res://scenes/comic/intro_comic/intro_comic.gd" id="1_8okc7"]
-[ext_resource type="Texture2D" uid="uid://b4qmxi47onx2e" path="res://assets/comic/telefono.png" id="2_fx64h"]
-[ext_resource type="Texture2D" uid="uid://dkl470oxf5sci" path="res://assets/comic/contestar.png" id="3_ljrht"]
-[ext_resource type="Texture2D" uid="uid://byqdmsl02e4i" path="res://assets/comic/auto.png" id="4_5dknd"]
+[ext_resource type="Texture2D" uid="uid://b4qmxi47onx2e" path="res://assets/UI/comic/telefono.png" id="2_fx64h"]
+[ext_resource type="Texture2D" uid="uid://dkl470oxf5sci" path="res://assets/UI/comic/contestar.png" id="3_ljrht"]
+[ext_resource type="Texture2D" uid="uid://byqdmsl02e4i" path="res://assets/UI/comic/auto.png" id="4_5dknd"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_8okc7")

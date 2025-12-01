@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://d18slyxeuihjx"]
+[gd_scene load_steps=15 format=4 uid="uid://d18slyxeuihjx"]
 
 [ext_resource type="Texture2D" uid="uid://i8hwe7wsmkjk" path="res://assets/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_nb07k"]
 [ext_resource type="Script" uid="uid://qsgly5wvtg1p" path="res://scenes/levels/level_1/level_manager1.gd" id="1_xof1x"]
@@ -6,7 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dheoirw86jxe7" path="res://scenes/obstacles/peaks/peak.tscn" id="3_jaywt"]
 [ext_resource type="PackedScene" uid="uid://cxfn3peq1f4y5" path="res://scenes/obstacles/fireball_generator/fireball_generator.tscn" id="4_2hfwj"]
 [ext_resource type="PackedScene" uid="uid://b5dokfp4psch2" path="res://scenes/UI/health/health.tscn" id="6_5p5ly"]
+[ext_resource type="PackedScene" uid="uid://kmjuyi5qlhh8" path="res://scenes/UI/moves/move.tscn" id="6_anwd6"]
 [ext_resource type="PackedScene" uid="uid://b68mmgpwff2a1" path="res://scenes/obstacles/box/box.tscn" id="6_wmlnd"]
+[ext_resource type="PackedScene" uid="uid://b6isbwacal208" path="res://scenes/items/coin.tscn" id="8_g5fml"]
+[ext_resource type="PackedScene" uid="uid://dntq30lxoaxgc" path="res://scenes/UI/game_over/game_over.tscn" id="10_77bb4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sx8gc"]
 texture = ExtResource("1_nb07k")
@@ -107,8 +110,6 @@ sources/0 = SubResource("TileSetAtlasSource_2hfwj")
 [node name="LevelTest" type="Node2D"]
 script = ExtResource("1_xof1x")
 
-[node name="dialogue" type="Node" parent="."]
-
 [node name="TilemapLayers" type="Node2D" parent="."]
 
 [node name="Floor" type="TileMapLayer" parent="TilemapLayers"]
@@ -129,16 +130,17 @@ position = Vector2(184, 120)
 position = Vector2(184, 136)
 
 [node name="Health" parent="." instance=ExtResource("6_5p5ly")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 480.0
-offset_right = 480.0
-grow_horizontal = 1
-grow_vertical = 1
+
+[node name="Move" parent="." instance=ExtResource("6_anwd6")]
 
 [node name="Box" parent="." instance=ExtResource("6_wmlnd")]
 position = Vector2(232, 120)
 
 [node name="MC" parent="." instance=ExtResource("2_sx8gc")]
 position = Vector2(232, 168)
+
+[node name="Coin" parent="." instance=ExtResource("8_g5fml")]
+position = Vector2(184, 96)
+
+[node name="GameOver" parent="." instance=ExtResource("10_77bb4")]
+visible = false

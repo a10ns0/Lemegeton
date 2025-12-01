@@ -1,58 +1,39 @@
-[gd_scene load_steps=7 format=3 uid="uid://dntq30lxoaxgc"]
+[gd_scene load_steps=2 format=3 uid="uid://dntq30lxoaxgc"]
 
-[ext_resource type="Script" uid="uid://cxsx78ohl0mm4" path="res://scenes/UI/game_over/game_over.gd" id="1_swjk2"]
-[ext_resource type="FontFile" uid="uid://dekcydcyat8l2" path="res://fonts/Cinzel_Decorative/CinzelDecorative-Regular.ttf" id="1_y5qob"]
-[ext_resource type="AudioStream" uid="uid://dv07eq0sfijg2" path="res://SFX/sicodelic_effect.mp3" id="2_apbb1"]
-[ext_resource type="AudioStream" uid="uid://c7woi0v58fmaj" path="res://SFX/dungeon_horror2.mp3" id="3_swjk2"]
+[ext_resource type="Script" uid="uid://hcucbumet5u5" path="res://scenes/UI/game_over/game_over.gd" id="1_swjk2"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_2f4m2"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y5qob"]
-
-[node name="GameOver" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="GameOver" type="CanvasLayer"]
 script = ExtResource("1_swjk2")
 
-[node name="Background" type="TextureRect" parent="."]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -67.5
+offset_right = 60.0
+offset_bottom = 67.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("CanvasTexture_2f4m2")
+color = Color(0, 0, 0, 0.5921569)
 
-[node name="TextEdit" type="TextEdit" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.2669167
-anchor_top = 0.34401566
-anchor_right = 0.7250001
-anchor_bottom = 0.6169219
-offset_left = -0.120010376
-offset_top = -0.06800842
-offset_right = -3.0517578e-05
-offset_bottom = 0.067993164
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_y5qob")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxTexture_y5qob")
-text = "You Died!"
-metadata/_edit_use_anchors_ = true
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 8
+text = "Repeat"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_apbb1")
-volume_db = -20.037
-autoplay = true
-
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_swjk2")
-volume_db = -41.028
-autoplay = true
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

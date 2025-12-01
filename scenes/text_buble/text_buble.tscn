@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfubshgw0ydkb"]
+
+[ext_resource type="Texture2D" uid="uid://dxdriv1mmwe2x" path="res://assets/UI/bubble_text/bulbbe.png" id="1_748hq"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BubbleContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 23.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="BubbleContainer"]
+layout_mode = 2
+texture = ExtResource("1_748hq")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="BubbleContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+
+[node name="Label" type="Label" parent="BubbleContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "C"
+vertical_alignment = 1
