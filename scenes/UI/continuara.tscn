@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bj0u3hny0fx34"]
+[gd_scene load_steps=3 format=3 uid="uid://bj0u3hny0fx34"]
 
 [ext_resource type="Script" uid="uid://cieonxj4or0em" path="res://scenes/UI/continuara.gd" id="1_uu027"]
+[ext_resource type="Texture2D" uid="uid://dmwgdlvknnggu" path="res://assets/Portraits/fmc_1/Sombra feliz.png" id="2_qkj8g"]
 
 [node name="Continuara" type="Control"]
 layout_mode = 3
@@ -33,4 +34,9 @@ offset_right = 49.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "continuará..."
+text = "Gracias por limpiar mi mansion"
+
+[node name="SombraFeliz" type="Sprite2D" parent="."]
+position = Vector2(32.000015, 112.000015)
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("2_qkj8g")

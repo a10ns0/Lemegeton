@@ -17,10 +17,11 @@ func _on_mc_damage():
 func _on_mc_interact():
 	$Move.add_move()
 	cont+=1
-	if cont == 3:
-		get_tree().change_scene_to_file("res://scenes/UI/level_selector/level_selector.tscn")
+	if cont == 2:
+		await get_tree().create_timer(2.0).timeout
+		get_tree().change_scene_to_file("res://scenes/levels/level_2/level_2.tscn")
 func _on_health_die():
 	$MC._on_health_die()
-	$GameOver.visible = true
+	$GameOver.visible = true 
 	
 	

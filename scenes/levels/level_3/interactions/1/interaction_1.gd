@@ -1,9 +1,10 @@
-extends Node2D
+extends Area2D
 
+
+@onready var foreground = $"../Node2D/Foreground"
+var tileset_number = 0
 var current_interact_area: Area2D = null
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	add_to_group("coin")
 	
 func _on_detection_area_area_entered(area: Area2D) -> void:
 	print("Área detectada:", area.name)
@@ -16,3 +17,10 @@ func _on_detection_area_area_exited(area: Area2D) -> void:
 		current_interact_area = null
 		$Control.visible = false
 		print("Ya no estás en el área de interacción.")
+
+
+func _on_tree_exiting():
+	foreground.set_cell(Vector2(14,10),tileset_number,Vector2(-1,-1))
+	foreground.set_cell(Vector2(16,10),tileset_number,Vector2(-1,-1))
+	foreground.set_cell(Vector2(12,13),tileset_number,Vector2(-1,-1))
+	foreground.set_cell(Vector2(18,13),tileset_number,Vector2(-1,-1))

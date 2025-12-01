@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdq3x16qi4ig6"
-path="res://.godot/imported/Sombra N.png-bf87ed281510899f57d12a123278487d.ctex"
+uid="uid://dmwgdlvknnggu"
+path="res://.godot/imported/Sombra feliz.png-6c0aa6fa66ce02f83aace564859bcd09.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Portraits/fmc_1/Sombra N.png"
-dest_files=["res://.godot/imported/Sombra N.png-bf87ed281510899f57d12a123278487d.ctex"]
+source_file="res://assets/Portraits/fmc_1/Sombra feliz.png"
+dest_files=["res://.godot/imported/Sombra feliz.png-6c0aa6fa66ce02f83aace564859bcd09.ctex"]
 
 [params]
 
