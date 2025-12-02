@@ -4,16 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://0vtfcwnclik8" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/flamethrower/flamethrower_1_1.png" id="1_onghl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ic77"]
-size = Vector2(10, 17.857141)
+size = Vector2(16, 28.57143)
 
 [node name="FireBall" type="Area2D" groups=["damage", "trap"]]
 script = ExtResource("1_5ic77")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -6.4999995)
+scale = Vector2(1, 1.03125)
 texture = ExtResource("1_onghl")
 flip_v = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(0, -3.5762787e-07)
 scale = Vector2(1, 0.56)
 shape = SubResource("RectangleShape2D_5ic77")

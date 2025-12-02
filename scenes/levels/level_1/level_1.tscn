@@ -1098,7 +1098,7 @@ volume_db = -29.285
 autoplay = true
 
 [node name="AreaPeak" parent="." instance=ExtResource("13_1jeig")]
-position = Vector2(248, 119)
+position = Vector2(248, 120)
 
 [node name="AreaPeak2" parent="." instance=ExtResource("13_1jeig")]
 position = Vector2(280, 120)
