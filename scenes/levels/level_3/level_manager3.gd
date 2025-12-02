@@ -17,7 +17,7 @@ func _on_mc_damage():
 func _on_mc_interact():
 	$Move.add_move()
 	cont+=1
-	if cont == 3:
+	if cont == 2:
 		await get_tree().create_timer(2.0).timeout
 		get_tree().change_scene_to_file("res://scenes/UI/continuara.tscn")
 func _on_health_die():

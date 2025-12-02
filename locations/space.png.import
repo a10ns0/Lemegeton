@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt2uw0alk7wg"
-path="res://.godot/imported/Mc neutro.png-303ec3e0df553935b97fec41954c5abb.ctex"
+uid="uid://bojapuledhnbj"
+path="res://.godot/imported/space.png-bdda1d7748ac075c7d8e9e37d39c7cac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Portraits/mc/Mc neutro.png"
-dest_files=["res://.godot/imported/Mc neutro.png-303ec3e0df553935b97fec41954c5abb.ctex"]
+source_file="res://locations/space.png"
+dest_files=["res://.godot/imported/space.png-bdda1d7748ac075c7d8e9e37d39c7cac.ctex"]
 
 [params]
 

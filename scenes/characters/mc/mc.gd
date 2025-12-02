@@ -11,6 +11,7 @@ var current_interact_area: Area2D = null
 const tile_size: Vector2 = Vector2(16,16)
 var sprite_node_pos_tween: Tween
 var state: bool  = true
+var pressed: bool  = true
 ##referencia a animacion de damage para player
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -29,26 +30,29 @@ func _ready():
 	
 func _process(delta: float) -> void:
 	if current_interact_area != null:
-		if Input.is_action_just_pressed("interact"): 
-			print("¡Interacción realizada!")
-			state = false
-			$AnimatedSprite2D.play("interact")
-			action.emit()
-			interact.emit()	
-			await $AnimatedSprite2D.animation_finished
-			$AnimatedSprite2D.play("idle")
-			state = true
+		if pressed:
+			if Input.is_action_just_pressed("interact"): 
+				pressed = false
+				print("¡Interacción realizada!")
+				state = false
+				$AnimatedSprite2D.play("interact")
+				action.emit()
+				interact.emit()	
+				await $AnimatedSprite2D.animation_finished
+				$AnimatedSprite2D.play("idle")
+				state = true
 			###Se hace una diferenciacion entre que elemento es para reproducir el audio
-			if current_interact_area.is_in_group("coin"):
-				audio_coin.play() 
-			elif current_interact_area.is_in_group("key"):
-				audio_collect_key.play()
-			elif current_interact_area.is_in_group("poison"):
-				audio_poison.play() 	
+				if current_interact_area.is_in_group("coin"):
+					audio_coin.play() 
+				elif current_interact_area.is_in_group("key"):
+					audio_collect_key.play()
+				elif current_interact_area.is_in_group("poison"):
+					audio_poison.play() 	
 			#
 			###Se elimina el area
-			current_interact_area.queue_free()
-			current_interact_area = null
+				current_interact_area.queue_free()
+				current_interact_area = null
+				pressed = true
 
 """func _process(delta: float) -> void:
 	if current_interact_area != null:

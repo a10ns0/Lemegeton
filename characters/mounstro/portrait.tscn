@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmeqjf70nm3j6"]
+
+[ext_resource type="Texture2D" uid="uid://dmwgdlvknnggu" path="res://characters/mounstro/Sombra feliz.png" id="1_p47d5"]
+[ext_resource type="Script" uid="uid://dtbnem7d2khbh" path="res://characters/base_portrait.gd" id="1_ymd04"]
+
+[sub_resource type="Animation" id="Animation_xg5vs"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Anchor/Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Anchor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_snanw"]
+_data = {
+&"idle": SubResource("Animation_xg5vs")
+}
+
+[node name="Portrait" type="Node2D" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("1_ymd04")
+character_name = "???"
+animation_player = NodePath("AnimationPlayer")
+
+[node name="Anchor" type="Marker2D" parent="."]
+
+[node name="Body" type="Sprite2D" parent="Anchor"]
+position = Vector2(0, -161)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("1_p47d5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_snanw")
+}
