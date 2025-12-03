@@ -15,7 +15,9 @@ shader_parameter/pattern_texture = ExtResource("2_0osj1")
 shader_parameter/scroll_speed = Vector2(0.05, 0)
 shader_parameter/time = 0.0
 
-[node name="Menu" type="Control"]
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,40 +26,33 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pt1kw")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -55.0
-offset_top = 50.0
-offset_right = 56.0
-offset_bottom = 85.0
+offset_left = -55.5
+offset_right = 55.5
+offset_bottom = 35.0
 grow_horizontal = 2
 theme_override_colors/default_color = Color(0.321698, 0, 0.0526642, 1)
 text = "LEMEGETON"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="Control"]
 material = SubResource("ShaderMaterial_oss40")
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -240.0
-offset_top = -127.5
-offset_right = 240.0
-offset_bottom = 127.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_0osj1")
 expand_mode = 1
-stretch_mode = 2
 script = ExtResource("4_oss40")
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="TextureRect2" type="TextureRect" parent="Control"]
 layout_mode = 0
 offset_left = 79.0
 offset_top = -20.0
@@ -66,45 +61,50 @@ offset_bottom = 205.0
 texture = ExtResource("3_jsfyc")
 script = ExtResource("6_43c6k")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 custom_minimum_size = Vector2(0.175, 0)
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.352
-anchor_top = 0.234
-anchor_right = 0.642
-anchor_bottom = 0.758
-offset_left = -4.95999
-offset_top = 16.096
-offset_right = -5.16
-offset_bottom = 15.952
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.5
+offset_top = -15.5
+offset_right = 24.5
+offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="Button" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Jugar"
 script = ExtResource("1_pt1kw")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 201.0
-offset_top = 177.0
-offset_right = 271.0
-offset_bottom = 217.0
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.425
+anchor_top = 0.60700005
+anchor_right = 0.577
+anchor_bottom = 0.72200006
+offset_top = 0.10998535
+offset_right = 0.039978027
+offset_bottom = 0.0599823
+grow_horizontal = 2
+grow_vertical = 0
 
-[node name="Button2" type="Button" parent="VBoxContainer2"]
+[node name="Button2" type="Button" parent="Control/VBoxContainer2"]
 layout_mode = 2
 text = "Créditos"
 script = ExtResource("7_w8goe")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
 stream = ExtResource("8_ha25c")
 pitch_scale = 0.3
 autoplay = true
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]
-[connection signal="pressed" from="VBoxContainer2/Button2" to="VBoxContainer2/Button2" method="_on_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Button" to="Control/VBoxContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer2/Button2" to="Control/VBoxContainer2/Button2" method="_on_pressed"]
